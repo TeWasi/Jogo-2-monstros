@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monstro: Procrastinação</title>
+    <title>Monstro: Tédio da Rotina</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -15,24 +15,24 @@
             min-height: 100vh;
         }
         .card-container {
-            max-width: 600px;
+            max-width: 480px; /* Mantido para um formato de carta mais apropriado */
             background-color: #1f2937;
-            border: 4px solid #facc15; /* Cor tema: Amarelo */
-            box-shadow: 0 0 40px rgba(250, 204, 21, 0.4);
+            border: 4px solid #3b82f6; /* Cor tema: Azul */
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.4);
         }
         .vulnerability-item {
-            border-left: 3px solid #facc15;
+            border-left: 3px solid #3b82f6;
             transition: background-color 0.2s;
         }
         .vulnerability-item:hover {
             background-color: #374151;
         }
-        .icon-color { color: #facc15; }
+        .icon-color { color: #3b82f6; }
         .monster-image {
             width: 100%;
-            height: 400px; 
-            object-fit: cover;
-            object-position: top;
+            height: auto; /* CORRIGIDO: Permite que a imagem use sua altura total */
+            object-fit: contain; /* Garante que a imagem inteira seja visível */
+            object-position: center top; 
         }
     </style>
 </head>
@@ -40,31 +40,28 @@
 
     <div class="card-container mx-auto p-6 rounded-xl">
         
-        <!-- Área da Imagem do Monstro - LINK PÚBLICO DIRETO DO GOOGLE DRIVE APLICADO! -->
+        <!-- Área da Imagem do Monstro - Link direto do Imgur aplicado! -->
         <div class="relative mb-6">
-            <img src="https://drive.google.com/uc?export=view&id=1gjX46MpReNs2Je-8bkhX1lhn8vRecKEX" 
-                 onerror="this.onerror=null; this.src='https://placehold.co/768x400/facc15/000000?text=ERRO+AO+CARREGAR+IMAGEM';"
-                 alt="Representação visual do Monstro da Procrastinação" 
-                 class="monster-image rounded-lg border-2 border-yellow-400">
-            <h1 class="absolute bottom-0 left-0 bg-yellow-600 text-white text-3xl sm:text-4xl font-extrabold px-4 py-2 rounded-tl-lg rounded-br-lg tracking-wider">
-                PROCRAS...
-            </h1>
+            <img src="https://i.imgur.com/NFLKwI8.jpeg" 
+                 onerror="this.onerror=null; this.src='https://placehold.co/768x400/3b82f6/FFFFFF?text=ERRO+AO+CARREGAR+IMAGEM';"
+                 alt="Representação visual do Monstro da Rotina Sem Fim" 
+                 class="monster-image rounded-lg border-2 border-blue-400">
         </div>
 
-        <h2 class="text-2xl font-bold mb-4 text-yellow-400 border-b border-yellow-700 pb-2">FICHA TÉCNICA DO MAL</h2>
+        <h2 class="text-2xl font-bold mb-4 text-blue-400 border-b border-blue-700 pb-2">FICHA TÉCNICA DO MAL</h2>
         
         <p class="text-sm italic text-gray-400 mb-6">
-            <i data-lucide="snail" class="icon-color inline-block h-4 w-4 mr-2"></i>
-            **Conceito Psicológico:** O hábito de adiar tarefas importantes, priorizando a gratificação instantânea e, ironicamente, aumentando o estresse no futuro.
+            <i data-lucide="repeat-2" class="icon-color inline-block h-4 w-4 mr-2"></i>
+            <strong class="text-white">Conceito Psicológico:</strong> O tédio e a inércia que tornam todos os dias iguais, esmagando a criatividade e a vontade de experimentar.
         </p>
 
         <!-- Detalhes do Dano -->
         <div class="bg-gray-800 p-4 rounded-lg mb-6">
-            <h3 class="text-xl font-bold text-yellow-300 flex items-center mb-2">
+            <h3 class="text-xl font-bold text-blue-300 flex items-center mb-2">
                 <i data-lucide="skull" class="icon-color h-5 w-5 mr-2"></i> DANO BASE:
             </h3>
             <p class="text-lg font-mono text-white">
-                **D6** (Acerto Crítico) / **D4** (Falha)
+                <strong class="text-white">D6</strong> (Acerto Crítico) / <strong class="text-white">D4</strong> (Falha)
             </p>
             <p class="text-sm text-gray-500 mt-1">
                 +2 de Bônus se houver uma Descoberta Genuína sobre a emoção do parceiro.
@@ -72,7 +69,7 @@
         </div>
 
         <!-- Vulnerabilidades -->
-        <h3 class="text-2xl font-bold mb-3 text-yellow-400 flex items-center">
+        <h3 class="text-2xl font-bold mb-3 text-blue-400 flex items-center">
             <i data-lucide="target" class="icon-color h-6 w-6 mr-2"></i> VULNERABILIDADES SÔNICAS
         </h3>
         
@@ -80,20 +77,20 @@
             <!-- Vulnerabilidade 1 -->
             <div class="vulnerability-item p-3 bg-gray-700 rounded-r-lg">
                 <p class="font-semibold text-white flex items-center mb-1">
-                    <i data-lucide="drumstick" class="icon-color h-5 w-5 mr-2"></i> RITMO CONSTANTE (FLOW STATE)
+                    <i data-lucide="dices" class="icon-color h-5 w-5 mr-2"></i> <strong class="text-white">MÚSICA INESPERADA/ABSURDA</strong>
                 </p>
                 <p class="text-sm text-gray-300">
-                    Música sem letra ou com batidas repetitivas, que ajude a mente a entrar em um estado de foco e a manter a inércia do trabalho.
+                    Quebra de padrão que gera risadas ou surpresa, injetando caos positivo para quebrar a lógica.
                 </p>
             </div>
             
             <!-- Vulnerabilidade 2 -->
             <div class="vulnerability-item p-3 bg-gray-700 rounded-r-lg">
                 <p class="font-semibold text-white flex items-center mb-1">
-                    <i data-lucide="chevrons-right" class="icon-color h-5 w-5 mr-2"></i> LETRA DE "SÓ COMECE"
+                    <i data-lucide="clock" class="icon-color h-5 w-5 mr-2"></i> <strong class="text-white">LETRA NOSTÁLGICA</strong>
                 </p>
                 <p class="text-sm text-gray-300">
-                    Música que celebra o ato de iniciar a tarefa, mesmo que imperfeitamente, quebrando a barreira da primeira ação.
+                    Música que lembra um momento feliz e inspira, injetando emoção e cor no cotidiano.
                 </p>
             </div>
         </div>
