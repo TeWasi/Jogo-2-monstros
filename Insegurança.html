@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monstro: Insegurança</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117;
+            color: #f3f4f6;
+            min-height: 100vh;
+        }
+        .card-container {
+            max-width: 480px;
+            background-color: #1f2937;
+            border: 4px solid #06b6d4; /* Cor tema: Ciano para instabilidade/dúvida */
+            box-shadow: 0 0 40px rgba(6, 182, 212, 0.4);
+        }
+        .vulnerability-item {
+            border-left: 3px solid #06b6d4;
+            transition: background-color 0.2s;
+        }
+        .vulnerability-item:hover {
+            background-color: #374151;
+        }
+        .icon-color { color: #06b6d4; }
+        .monster-image {
+            width: 100%;
+            height: auto; 
+            object-fit: contain; 
+            object-position: center top; 
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-4">
 
+    <div class="card-container mx-auto p-6 rounded-xl">
+        
+        <!-- Área da Imagem do Monstro - Link direto do Imgur aplicado! -->
+        <div class="relative mb-6">
+            <img src="https://i.imgur.com/L1jghA0.jpeg" 
+                 onerror="this.onerror=null; this.src='https://placehold.co/768x400/06b6d4/FFFFFF?text=ERRO+AO+CARREGAR+IMAGEM';"
+                 alt="Representação visual do Monstro da Insegurança" 
+                 class="monster-image rounded-lg border-2 border-cyan-400">
+        </div>
+
+        <h2 class="text-2xl font-bold mb-4 text-cyan-400 border-b border-cyan-700 pb-2">FICHA TÉCNICA DO MAL</h2>
+        
+        <p class="text-sm italic text-gray-400 mb-6">
+            <i data-lucide="help-circle" class="icon-color inline-block h-4 w-4 mr-2"></i>
+            <strong class="text-white">Conceito Psicológico:</strong> A dúvida constante sobre a própria capacidade, valor ou aceitação, resultando em hesitação, medo de tomar decisões e busca excessiva por validação externa.
+        </p>
+
+        <!-- Detalhes do Dano -->
+        <div class="bg-gray-800 p-4 rounded-lg mb-6">
+            <h3 class="text-xl font-bold text-cyan-300 flex items-center mb-2">
+                <i data-lucide="skull" class="icon-color h-5 w-5 mr-2"></i> DANO BASE:
+            </h3>
+            <p class="text-lg font-mono text-white">
+                <strong class="text-white">D8</strong> (Acerto Crítico) / <strong class="text-white">D4</strong> (Falha)
+            </p>
+            <p class="text-sm text-gray-500 mt-1">
+                +2 de Bônus se houver um Reconhecimento Interno (aceitação de uma falha como aprendizado, não como destino).
+            </p>
+        </div>
+
+        <!-- Vulnerabilidades -->
+        <h3 class="text-2xl font-bold mb-3 text-cyan-400 flex items-center">
+            <i data-lucide="target" class="icon-color h-6 w-6 mr-2"></i> VULNERABILIDADES SÔNICAS
+        </h3>
+        
+        <div class="space-y-4">
+            <!-- Vulnerabilidade 1 -->
+            <div class="vulnerability-item p-3 bg-gray-700 rounded-r-lg">
+                <p class="font-semibold text-white flex items-center mb-1">
+                    <i data-lucide="check-circle" class="icon-color h-5 w-5 mr-2"></i> <strong class="text-white">MÚSICA COM MENSAGEM DE CERTEZA</strong>
+                </p>
+                <p class="text-sm text-gray-300">
+                    Canções que falam de convicção, propósito claro ou a força de superar dúvidas, incentivando a confiança.
+                </p>
+            </div>
+            
+            <!-- Vulnerabilidade 2 -->
+            <div class="vulnerability-item p-3 bg-gray-700 rounded-r-lg">
+                <p class="font-semibold text-white flex items-center mb-1">
+                    <i data-lucide="award" class="icon-color h-5 w-5 mr-2"></i> <strong class="text-white">MÚSICA QUE CELEBRA A CONQUISTA PESSOAL</strong>
+                </p>
+                <p class="text-sm text-gray-300">
+                    Sons que remetem a vitórias e momentos de orgulho, relembrando o indivíduo de seu valor intrínseco.
+                </p>
+            </div>
+        </div>
+
+        <footer class="text-center text-gray-500 text-xs mt-8 pt-4 border-t border-gray-700">
+            Ficha Oficial | Jogo 2: A Jornada dos Magos Sônicos
+        </footer>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
