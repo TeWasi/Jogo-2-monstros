@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monstro: Julgamento Exterior</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117;
+            color: #f3f4f6;
+            min-height: 100vh;
+        }
+        .card-container {
+            max-width: 480px;
+            background-color: #1f2937;
+            border: 4px solid #9333ea; /* Cor tema: Roxo para escrutínio/crítica */
+            box-shadow: 0 0 40px rgba(147, 51, 234, 0.4);
+        }
+        .vulnerability-item {
+            border-left: 3px solid #9333ea;
+            transition: background-color 0.2s;
+        }
+        .vulnerability-item:hover {
+            background-color: #374151;
+        }
+        .icon-color { color: #9333ea; }
+        .monster-image {
+            width: 100%;
+            height: auto; 
+            object-fit: contain; 
+            object-position: center top; 
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-4">
 
+    <div class="card-container mx-auto p-6 rounded-xl">
+        
+        <!-- Área da Imagem do Monstro - Link direto do Imgur aplicado! -->
+        <div class="relative mb-6">
+            <img src="https://i.imgur.com/8zsFAx6.jpeg" 
+                 onerror="this.onerror=null; this.src='https://placehold.co/768x400/9333ea/FFFFFF?text=ERRO+AO+CARREGAR+IMAGEM';"
+                 alt="Representação visual do Monstro do Julgamento Exterior" 
+                 class="monster-image rounded-lg border-2 border-purple-400">
+        </div>
+
+        <h2 class="text-2xl font-bold mb-4 text-purple-400 border-b border-purple-700 pb-2">FICHA TÉCNICA DO MAL</h2>
+        
+        <p class="text-sm italic text-gray-400 mb-6">
+            <i data-lucide="eye" class="icon-color inline-block h-4 w-4 mr-2"></i>
+            <strong class="text-white">Conceito Psicológico:</strong> A ansiedade e o autoquestionamento gerados pela percepção (real ou imaginária) da crítica e da avaliação alheia sobre as ações e a identidade do indivíduo.
+        </p>
+
+        <!-- Detalhes do Dano -->
+        <div class="bg-gray-800 p-4 rounded-lg mb-6">
+            <h3 class="text-xl font-bold text-purple-300 flex items-center mb-2">
+                <i data-lucide="skull" class="icon-color h-5 w-5 mr-2"></i> DANO BASE:
+            </h3>
+            <p class="text-lg font-mono text-white">
+                <strong class="text-white">D10</strong> (Acerto Crítico) / <strong class="text-white">D6</strong> (Falha)
+            </p>
+            <p class="text-sm text-gray-500 mt-1">
+                +2 de Bônus se houver uma Expressão Autêntica (o indivíduo se aceita e se expressa livremente).
+            </p>
+        </div>
+
+        <!-- Vulnerabilidades -->
+        <h3 class="text-2xl font-bold mb-3 text-purple-400 flex items-center">
+            <i data-lucide="target" class="icon-color h-6 w-6 mr-2"></i> VULNERABILIDADES SÔNICAS
+        </h3>
+        
+        <div class="space-y-4">
+            <!-- Vulnerabilidade 1 -->
+            <div class="vulnerability-item p-3 bg-gray-700 rounded-r-lg">
+                <p class="font-semibold text-white flex items-center mb-1">
+                    <i data-lucide="thumbs-up" class="icon-color h-5 w-5 mr-2"></i> <strong class="text-white">MÚSICA DE AFIRMAÇÃO/ACEITAÇÃO</strong>
+                </p>
+                <p class="text-sm text-gray-300">
+                    Canções que celebram a individualidade e a autoaceitação, dissolvendo a importância da opinião alheia.
+                </p>
+            </div>
+            
+            <!-- Vulnerabilidade 2 -->
+            <div class="vulnerability-item p-3 bg-gray-700 rounded-r-lg">
+                <p class="font-semibold text-white flex items-center mb-1">
+                    <i data-lucide="feather" class="icon-color h-5 w-5 mr-2"></i> <strong class="text-white">MÚSICA DE FOCO INTERNO/MINDFULNESS</strong>
+                </p>
+                <p class="text-sm text-gray-300">
+                    Sons que desviam a atenção do exterior e a trazem de volta para a própria experiência e sentimentos presentes.
+                </p>
+            </div>
+        </div>
+
+        <footer class="text-center text-gray-500 text-xs mt-8 pt-4 border-t border-gray-700">
+            Ficha Oficial | Jogo 2: A Jornada dos Magos Sônicos
+        </footer>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
