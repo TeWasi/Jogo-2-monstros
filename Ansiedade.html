@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monstro: Ansiedade de Performance</title>
+    <title>Monstro: Ansiedade</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -15,25 +15,24 @@
             min-height: 100vh;
         }
         .card-container {
-            max-width: 600px;
+            max-width: 480px;
             background-color: #1f2937;
-            border: 4px solid #ef4444; /* Cor tema: Vermelho */
-            box-shadow: 0 0 40px rgba(239, 68, 68, 0.4);
+            border: 4px solid #eab308; /* Cor tema: Amarelo/Dourado para alerta/desgaste */
+            box-shadow: 0 0 40px rgba(234, 179, 8, 0.4);
         }
         .vulnerability-item {
-            border-left: 3px solid #ef4444;
+            border-left: 3px solid #eab308;
             transition: background-color 0.2s;
         }
         .vulnerability-item:hover {
             background-color: #374151;
         }
-        .icon-color { color: #ef4444; }
-        /* Ajuste para o tamanho da imagem */
+        .icon-color { color: #eab308; }
         .monster-image {
             width: 100%;
-            height: 400px; /* Definindo uma altura visual agradável para mobile/desktop */
-            object-fit: cover;
-            object-position: top; 
+            height: auto; 
+            object-fit: contain; 
+            object-position: center top; 
         }
     </style>
 </head>
@@ -41,39 +40,36 @@
 
     <div class="card-container mx-auto p-6 rounded-xl">
         
-        <!-- Área da Imagem do Monstro - URL ATUALIZADA -->
+        <!-- Área da Imagem do Monstro - Link direto do Imgur aplicado! -->
         <div class="relative mb-6">
-            <img src="https://photos.fife.usercontent.google.com/pw/AP1GczOy6xYhspzu7JigO4bqurm6Y81l9bzJJZT3zrXr--na_bypMSuwheEQ=w664-h954-s-no-gm?authuser=0" 
-                 onerror="this.onerror=null; this.src='https://placehold.co/768x400/ef4444/FFFFFF?text=ERRO+AO+CARREGAR+IMAGEM';"
-                 alt="Representação visual do Monstro da Ansiedade de Performance" 
-                 class="monster-image rounded-lg border-2 border-red-400">
-            <h1 class="absolute bottom-0 left-0 bg-red-600 text-white text-3xl sm:text-4xl font-extrabold px-4 py-2 rounded-tl-lg rounded-br-lg tracking-wider">
-                ANSIEDADE
-            </h1>
+            <img src="https://i.imgur.com/RaqoIs0.jpeg" 
+                 onerror="this.onerror=null; this.src='https://placehold.co/768x400/eab308/FFFFFF?text=ERRO+AO+CARREGAR+IMAGEM';"
+                 alt="Representação visual do Monstro da Ansiedade" 
+                 class="monster-image rounded-lg border-2 border-yellow-400">
         </div>
 
-        <h2 class="text-2xl font-bold mb-4 text-red-400 border-b border-red-700 pb-2">FICHA TÉCNICA DO MAL</h2>
+        <h2 class="text-2xl font-bold mb-4 text-yellow-400 border-b border-yellow-700 pb-2">FICHA TÉCNICA DO MAL</h2>
         
         <p class="text-sm italic text-gray-400 mb-6">
-            <i data-lucide="zap" class="icon-color inline-block h-4 w-4 mr-2"></i>
-            **Conceito Psicológico:** O medo de falhar e a pressão interna para alcançar resultados. É a voz que te lembra de todas as responsabilidades.
+            <i data-lucide="alert-triangle" class="icon-color inline-block h-4 w-4 mr-2"></i>
+            <strong class="text-white">Conceito Psicológico:</strong> Um estado de preocupação excessiva e constante, que gera tensão física e mental sobre eventos futuros, muitas vezes desproporcionais à ameaça real.
         </p>
 
         <!-- Detalhes do Dano -->
         <div class="bg-gray-800 p-4 rounded-lg mb-6">
-            <h3 class="text-xl font-bold text-red-300 flex items-center mb-2">
+            <h3 class="text-xl font-bold text-yellow-300 flex items-center mb-2">
                 <i data-lucide="skull" class="icon-color h-5 w-5 mr-2"></i> DANO BASE:
             </h3>
             <p class="text-lg font-mono text-white">
-                **D6** (Acerto Crítico) / **D4** (Falha)
+                <strong class="text-white">D10</strong> (Acerto Crítico) / <strong class="text-white">D6</strong> (Falha)
             </p>
             <p class="text-sm text-gray-500 mt-1">
-                +2 de Bônus se houver uma Descoberta Genuína sobre a emoção do parceiro.
+                +2 de Bônus se houver uma Âncora no Presente (foco na respiração ou em sensações imediatas).
             </p>
         </div>
 
         <!-- Vulnerabilidades -->
-        <h3 class="text-2xl font-bold mb-3 text-red-400 flex items-center">
+        <h3 class="text-2xl font-bold mb-3 text-yellow-400 flex items-center">
             <i data-lucide="target" class="icon-color h-6 w-6 mr-2"></i> VULNERABILIDADES SÔNICAS
         </h3>
         
@@ -81,20 +77,20 @@
             <!-- Vulnerabilidade 1 -->
             <div class="vulnerability-item p-3 bg-gray-700 rounded-r-lg">
                 <p class="font-semibold text-white flex items-center mb-1">
-                    <i data-lucide="sun" class="icon-color h-5 w-5 mr-2"></i> RITMO CALMO E RELAXANTE
+                    <i data-lucide="feather" class="icon-color h-5 w-5 mr-2"></i> <strong class="text-white">MÚSICA AMBIENTE OU BINAURAL</strong>
                 </p>
                 <p class="text-sm text-gray-300">
-                    Música com BPM lento para forçar o corpo a desacelerar e a mente a respirar antes de uma crise.
+                    Sons projetados para desacelerar as ondas cerebrais (Theta/Delta), promovendo relaxamento e foco no presente.
                 </p>
             </div>
             
             <!-- Vulnerabilidade 2 -->
             <div class="vulnerability-item p-3 bg-gray-700 rounded-r-lg">
                 <p class="font-semibold text-white flex items-center mb-1">
-                    <i data-lucide="message-square-heart" class="icon-color h-5 w-5 mr-2"></i> LETRA DE ACEITAÇÃO
+                    <i data-lucide="cloud-lightning" class="icon-color h-5 w-5 mr-2"></i> <strong class="text-white">MÚSICA QUE RECONHECE E VALIDA O SENTIMENTO</strong>
                 </p>
                 <p class="text-sm text-gray-300">
-                    Música que valida o esforço e não apenas o resultado. Ensina a gentileza consigo mesmo.
+                    Canções que articulam a experiência da ansiedade, permitindo que o ouvinte se sinta compreendido e menos isolado.
                 </p>
             </div>
         </div>
