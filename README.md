@@ -1,128 +1,154 @@
-
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monstros Jogo 2: A Jornada dos Magos Sônicos</title>
+    <title>Gerador de QR Codes Bonitos</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Biblioteca de QR Code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0d1117;
             color: #f3f4f6;
-            min-height: 100vh;
         }
-        .monster-card {
+        .qr-card {
             background-color: #1f2937;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .qr-placeholder {
+            padding: 1rem;
+            background-color: #ffffff;
             border-radius: 0.5rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid;
+            display: inline-block;
         }
-        .monster-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
-        }
-        .monster-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 50%);
-            z-index: 0;
+        /* Estilo para impressão */
+        @media print {
+            body {
+                background-color: white;
+                color: #0d1117;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .qr-card {
+                background-color: #ffffff;
+                border: 1px solid #ccc;
+                page-break-inside: avoid;
+            }
+            .print-button {
+                display: none;
+            }
         }
     </style>
 </head>
 <body class="p-6 md:p-12">
 
-    <header class="text-center mb-12">
+    <header class="text-center mb-12 no-print">
         <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-2">
-            ARQUIVO MÁGICO: JOGO 2
+            ESTAÇÃO DE QR CODE
         </h1>
-        <p class="text-xl text-gray-400 font-medium">A Jornada dos Magos Sônicos - Fichas dos Monstros da Mente</p>
+        <p class="text-xl text-gray-400 font-medium">Códigos prontos para impressão. (Links corrigidos)</p>
+        <button onclick="window.print()" class="print-button mt-4 bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-6 rounded-lg transition duration-150 flex items-center mx-auto shadow-lg">
+            <i data-lucide="printer" class="w-5 h-5 mr-2"></i> Imprimir Todos os Códigos
+        </button>
     </header>
 
-    <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        <!-- MONSTRO 1: Tédio da Rotina -->
-        <a href="rotina.html" class="monster-card border-blue-500 hover:border-blue-300 shadow-blue-900/50">
-            <div class="p-5">
-                <div class="flex items-center mb-3">
-                    <i data-lucide="repeat-2" class="w-6 h-6 text-blue-400 mr-3"></i>
-                    <h3 class="text-xl font-bold text-blue-400">Tédio da Rotina</h3>
-                </div>
-                <p class="text-sm text-gray-400">A inércia que esmaga a criatividade.</p>
-            </div>
-        </a>
-
-        <!-- MONSTRO 2: Procrastinação -->
-        <a href="procrastinacao.html" class="monster-card border-orange-500 hover:border-orange-300 shadow-orange-900/50">
-            <div class="p-5">
-                <div class="flex items-center mb-3">
-                    <i data-lucide="clock-stop" class="w-6 h-6 text-orange-400 mr-3"></i>
-                    <h3 class="text-xl font-bold text-orange-400">Procrastinação</h3>
-                </div>
-                <p class="text-sm text-gray-400">O adiamento causado pelo medo do fracasso.</p>
-            </div>
-        </a>
-
-        <!-- MONSTRO 3: Julgamento Exterior -->
-        <a href="julgamento_exterior.html" class="monster-card border-purple-500 hover:border-purple-300 shadow-purple-900/50">
-            <div class="p-5">
-                <div class="flex items-center mb-3">
-                    <i data-lucide="eye" class="w-6 h-6 text-purple-400 mr-3"></i>
-                    <h3 class="text-xl font-bold text-purple-400">Julgamento Exterior</h3>
-                </div>
-                <p class="text-sm text-gray-400">A ansiedade gerada pela crítica alheia.</p>
-            </div>
-        </a>
-
-        <!-- MONSTRO 4: Insegurança -->
-        <a href="inseguranca.html" class="monster-card border-cyan-500 hover:border-cyan-300 shadow-cyan-900/50">
-            <div class="p-5">
-                <div class="flex items-center mb-3">
-                    <i data-lucide="help-circle" class="w-6 h-6 text-cyan-400 mr-3"></i>
-                    <h3 class="text-xl font-bold text-cyan-400">Insegurança</h3>
-                </div>
-                <p class="text-sm text-gray-400">Dúvida sobre o próprio valor e capacidade.</p>
-            </div>
-        </a>
-
-        <!-- MONSTRO 5: Fala Rupta -->
-        <a href="fala_rupta.html" class="monster-card border-red-500 hover:border-red-300 shadow-red-900/50">
-            <div class="p-5">
-                <div class="flex items-center mb-3">
-                    <i data-lucide="volume-x" class="w-6 h-6 text-red-400 mr-3"></i>
-                    <h3 class="text-xl font-bold text-red-400">Fala Rupta</h3>
-                </div>
-                <p class="text-sm text-gray-400">A frustração da comunicação quebrada.</p>
-            </div>
-        </a>
-
-        <!-- MONSTRO 6: Ansiedade -->
-        <a href="ansiedade.html" class="monster-card border-yellow-500 hover:border-yellow-300 shadow-yellow-900/50">
-            <div class="p-5">
-                <div class="flex items-center mb-3">
-                    <i data-lucide="alert-triangle" class="w-6 h-6 text-yellow-400 mr-3"></i>
-                    <h3 class="text-xl font-bold text-yellow-400">Ansiedade</h3>
-                </div>
-                <p class="text-sm text-gray-400">O alerta constante e a preocupação excessiva.</p>
-            </div>
-        </a>
-
+    <div id="qr-grid" class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <!-- Os cartões de QR Code serão injetados aqui -->
     </div>
-
-    <footer class="text-center text-gray-600 text-sm mt-12 pt-6 border-t border-gray-800">
-        &copy; 2025 Jogo 2 - Fichas completas. Clique nos cards para ver os detalhes.
-    </footer>
 
     <script>
         lucide.createIcons();
+
+        // Dados com os URLs corrigidos e a cor tema para cada monstro
+        const monsterData = [
+            {
+                name: "Tédio da Rotina", 
+                url: "https://tewasi.github.io/Jogo-2-monstros/Tedio%20da%20Rotina", 
+                color: "blue",
+                hex: "#3b82f6"
+            },
+            {
+                name: "Procrastinação", 
+                url: "https://tewasi.github.io/Jogo-2-monstros/Procrastina%C3%A7%C3%A3o", 
+                color: "orange",
+                hex: "#f97316"
+            },
+            {
+                name: "Julgamento Exterior", 
+                url: "https://tewasi.github.io/Jogo-2-monstros/Julgamento%20Exterior", 
+                color: "purple",
+                hex: "#a855f7"
+            },
+            {
+                name: "Insegurança", 
+                url: "https://tewasi.github.io/Jogo-2-monstros/Inseguran%C3%A7a", 
+                color: "cyan",
+                hex: "#06b6d4"
+            },
+            {
+                name: "Fala Rupta", 
+                url: "https://tewasi.github.io/Jogo-2-monstros/Fala%20Rupta", 
+                color: "red",
+                hex: "#ef4444"
+            },
+            {
+                name: "Ansiedade", 
+                url: "https://tewasi.github.io/Jogo-2-monstros/Ansiedade", 
+                color: "yellow",
+                hex: "#eab308"
+            }
+        ];
+
+        const grid = document.getElementById('qr-grid');
+
+        monsterData.forEach((monster, index) => {
+            // 1. Criar o elemento do cartão
+            const card = document.createElement('div');
+            card.className = `qr-card border-t-4 border-${monster.color}-500`;
+            card.style.borderColor = monster.hex; // Aplica a cor tema como borda
+
+            // 2. Título
+            const title = document.createElement('h3');
+            title.className = `text-xl font-bold mb-3 text-${monster.color}-400 text-center`;
+            title.style.color = monster.hex;
+            title.textContent = monster.name;
+
+            // 3. Container do QR Code
+            const qrContainer = document.createElement('div');
+            qrContainer.id = `qrcode-${index}`;
+            qrContainer.className = 'qr-placeholder';
+
+            // 4. Parágrafo do Link
+            const linkText = document.createElement('p');
+            linkText.className = 'text-xs text-gray-500 mt-4 text-center break-all';
+            linkText.textContent = `Link: ${monster.url}`;
+
+            // 5. Adicionar elementos ao cartão
+            card.appendChild(title);
+            card.appendChild(qrContainer);
+            card.appendChild(linkText);
+            grid.appendChild(card);
+
+            // 6. Gerar o QR Code
+            new QRCode(qrContainer, {
+                text: monster.url,
+                width: 200,
+                height: 200,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        });
     </script>
 </body>
 </html>
